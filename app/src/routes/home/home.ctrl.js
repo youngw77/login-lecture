@@ -24,7 +24,7 @@ const process = {
             const idx = users.id.lastIndexOf(id);
             if (users.password[idx] === password) {
                 return res.json({
-                    sucess: true,
+                    success: true,
                 });
             }
         }
