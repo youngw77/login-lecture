@@ -32,7 +32,7 @@ class UserStorage {
             return newUser;
         }, {});
         //userskeys의 this값으로 받은 키값과 자식값을 초기값 =>
-        //object{} userinfo 배열 안에 id와 password를 저장한다.
+        //object{} userinfo 배열 안에 id와 password를 저장한다.(info는 키값 idx는 user로 부터 받은 id값의 리스트)
         
         return userInfo;
         // 저장된 배열 값을 반환해준다.
