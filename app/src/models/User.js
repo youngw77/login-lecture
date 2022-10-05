@@ -12,14 +12,14 @@ class User {
         const user = await UserStorage.getUserInfo(client.id);
         try {
         if (user) {
-        if (user.userid === client.id && user.userpassword === client.password) {
+        if (user.id === client.id && user.password === client.password) {
             return {success: true};
             }
         return {success: false, msg: "비밀번호가 틀렸습니다."}; 
         }
         return { success: false, msg: "존재하지 않는 아이디입니다."};
         } catch(err){
-            return {success: false, msg: err};
+            return {success: false, err};
         }
     }
     
@@ -31,8 +31,7 @@ class User {
         console.log(response);
         return response;
         } catch(err) {
-            console.error(err);
-            return {success: false, msg: err};
+            return {success: false, err};
         }
     }
 }

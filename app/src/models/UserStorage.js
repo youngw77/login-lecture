@@ -40,7 +40,7 @@ class UserStorage {
             const query = "SELECT * FROM users WHERE id = ?";
         db.query(query, [id], (err, data) => {
             if(err) reject(`${err}`);
-            resolve(data[0]);
+            else resolve(data[0]);
             // db.query의 안의 문이 성공하면 resolve 실행, 실패하면 reject 실행
         });
      });
@@ -57,7 +57,7 @@ class UserStorage {
             [userInfo.id, userInfo.name, userInfo.password], 
             (err) => {
             if(err) reject(`${err}`);
-            resolve( {success: true} );
+            else resolve( {success: true} );
             // db.query의 안의 문이 성공하면 resolve 실행, 실패하면 reject 실행
         });
      });
