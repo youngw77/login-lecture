@@ -9,20 +9,20 @@ class User {
 
     async login() {
         const client = this.body;
+        const user = await UserStorage.getUserInfo(client.id);
         try {
-        const {id, password} = await UserStorage.getUserInfo(client.id);
-
-        if(id){
-        if (id === client.id && password === client.password) {
+        if (user) {
+        if (user.userid === client.id && user.userpassword === client.password) {
             return {success: true};
+            }
+        return {success: false, msg: "비밀번호가 틀렸습니다."}; 
         }
-        return {success: false, msg: "비밀번호가 틀렸습니다."};
-        }
-        return {success: false, meg: "존재하지 않는 아이디입니다."};
+        return { success: false, msg: "존재하지 않는 아이디입니다."};
         } catch(err){
             return {success: false, msg: err};
         }
     }
+    
 
     async register() {
         const client = this.body;
